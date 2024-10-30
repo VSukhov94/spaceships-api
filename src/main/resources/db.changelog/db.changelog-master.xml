@@ -1,0 +1,17 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!--    Init tables-->
+    <include file="db.changelog/tables/users.sql"/>
+    <include file="db.changelog/tables/roles.sql"/>
+    <include file="db.changelog/tables/users_roles.sql"/>
+    <include file="db.changelog/tables/spaceships.sql"/>
+
+    <!--   Dataload -->
+    <include file="db.changelog/dataload/roles_init.sql"/>
+    <include file="db.changelog/dataload/default_user_init.sql"/>
+
+</databaseChangeLog>

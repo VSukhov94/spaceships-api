@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: spaceships-api
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/spaceshipdb
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db.changelog/db.changelog-master.xml
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+    cache:
+      type: redis
+
+  doc:
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.develop.management.dto.spaceship
+      group-id: spaceship-service-group
+
+jwt:
+  secret: SuperSecretTestSecretKey1234567890987654321
+
+kafka:
+  topic:
+    spaceship-events: spaceship-events
