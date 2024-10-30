@@ -71,8 +71,7 @@ Spaceship Management (Located at /api/spaceships):
 
 
 ## How to run tests on this application
-I mocked every service and context i needed to run them, so i don't need to run db in test context.
-Also created **TestConfig class** to mock dependencies as Redis and Kafka. 
+
 Feel free to use **TestDataHelper class** for static parameters inside test methods. 
 
 
